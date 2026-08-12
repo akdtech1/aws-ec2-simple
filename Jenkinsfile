@@ -9,15 +9,15 @@ pipeline {
   stages {
     stage('Terraform Init'){
       steps {
-        sh '/usr/local/bin/terraform init'
+        sh '/usr/bin/terraform init'
 
       }
     }
 
     stage('Terraform Plan'){
       steps {
-        sh '/usr/local/bin/terraform plan -out testplan'
-        sh '/usr/local/bin/terraform show -json testplan > testplan.json'
+        sh '/usr/bin/terraform plan -out testplan'
+        sh '/usr/bin/terraform show -json testplan > testplan.json'
         
       }
     }
@@ -36,15 +36,15 @@ pipeline {
 
       stage('Terraform Apply'){
       steps {
-        sh '/usr/local/bin/terraform apply -auto-approve'
+        sh '/usr/bin/terraform apply -auto-approve'
         
       }
     }
 
       stage('Terraform Destroy'){
       steps {
-        sh '/usr/local/bin/terraform plan -out destroyplan -destroy'
-        sh '/usr/local/bin/terraform apply destroyplan'
+        sh '/usr/bin/terraform plan -out destroyplan -destroy'
+        sh '/usr/bin/terraform apply destroyplan'
         
       }
     }
