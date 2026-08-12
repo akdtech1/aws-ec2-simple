@@ -1,4 +1,4 @@
-pipelife {
+pipeline {
   agent {label 'iac'}
 
   environment {
