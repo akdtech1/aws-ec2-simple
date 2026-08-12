@@ -27,7 +27,8 @@ pipeline {
       steps {
         catchError(buildResult: 'SUCCESS', message: 'IAC Misconfiguratios found', stageResult: 'UNSTABLE')
                    {
-                     sh 'sudo /root/.local/share/pipx/venvs/checkov/bin/checkov -f testplan.json'
+                     sh 'sudo /home/ubuntu/.local/bin/checkov -f testplan.json'
+                     
                    }
         
       }
